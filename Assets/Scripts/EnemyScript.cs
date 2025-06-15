@@ -6,7 +6,10 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private int _health = 3; //the health of this enemy
     [SerializeField] private GameObject _gearDropObj; //the gear object this thing drops
-    [SerializeField] private float _dropRate = 3; //can drop up to whatever number this is set to
+    [SerializeField] private float _gearDropRate = 3; //can drop up to whatever number this is set to of gears
+    [SerializeField] private float _energyGemDropRate = 1.65f; //can drop up to whatever number this is set to of energy gems
+    [SerializeField] private GameObject _energyGemDropObj; //the energy gems object this thing drops
+
     public void InflictDamage(int m_damageTaken)
     {
         _health -= m_damageTaken;
@@ -18,11 +21,17 @@ public class EnemyScript : MonoBehaviour
         if (_health <= 0)
         {
             //generate drops
-            
-            int numOfGearsToDrop = Mathf.FloorToInt(Random.Range(0, _dropRate)) + 1;
+            //GEARS
+            int numOfGearsToDrop = Mathf.FloorToInt(Random.Range(0, _gearDropRate)) + 1;
             for (int i = 0; i < numOfGearsToDrop; i++)
             {
                 Instantiate(_gearDropObj, this.gameObject.transform.position, Quaternion.identity);
+            }
+            //ENERGY GEMS
+            int numOfEnergyGemsToDrop = Mathf.FloorToInt(Random.Range(0, _energyGemDropRate));
+            for (int i = 0; i < numOfEnergyGemsToDrop; i++)
+            {
+                Instantiate(_energyGemDropObj, this.gameObject.transform.position, Quaternion.identity);
             }
             //destroy this enemy object
             Destroy(this.gameObject);

@@ -12,7 +12,7 @@ public class PlayerHealthScript : MonoBehaviour
     private bool _invulnerable = false;
     private float _invulnerableTime = 2.3f;
     private float _invulnerableCounter = 0;
-    private float _flashStartNum = 1.5f;
+    private float _flashStartNum = 1.2f;
     private bool _shieldOn = false;
 
     public void DamagePlayer(int _damageTaken)
@@ -44,14 +44,14 @@ public class PlayerHealthScript : MonoBehaviour
                 _invulnerablilityShield.SetActive(false);
                 _invulnerable = false;
                 _invulnerableCounter = 0;
-                _flashStartNum = 1.5f;
+                _flashStartNum = 1.2f;
 
             }
-            if (_invulnerableCounter  > _flashStartNum && _invulnerableCounter < (_flashStartNum + 0.1f))
+            if (_invulnerableCounter  > _flashStartNum && _invulnerableCounter < (_flashStartNum + 0.2f))
             {
                 _invulnerablilityShield.SetActive(!_shieldOn);
                 _shieldOn = !_shieldOn;
-                _flashStartNum += 0.15f;
+                _flashStartNum += 0.2f;
             }
 
         }

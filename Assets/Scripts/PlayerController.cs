@@ -41,4 +41,6 @@ public class PlayerController : MonoBehaviour
         this.gameObject.transform.position += _playerMoveDir * (Time.deltaTime * _playerMoveSpeed); //put this in the if statement above if i dont want to move while praying
 
     }
+
+    
 }

@@ -34,7 +34,7 @@ public class EnemyDropScript : MonoBehaviour
 
         if (_suckIntoPlayer == true)
         {
-            transform.position = Vector3.MoveTowards(this.gameObject.transform.position, _player.transform.position, 1f *Time.deltaTime);
+            transform.position = Vector3.MoveTowards(this.gameObject.transform.position, _player.transform.position, 2f *Time.deltaTime);
         }
         
     }

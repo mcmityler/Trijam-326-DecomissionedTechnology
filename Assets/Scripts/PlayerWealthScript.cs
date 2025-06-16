@@ -6,6 +6,7 @@ public class PlayerWealthScript : MonoBehaviour
 {
     [SerializeField] private int _gearsCollected = 0;
     [SerializeField] private int _energyGemsCollected = 0;
+    [SerializeField] private ShopScript _shopScript;
 
     public void CollectDrop(int m_gearAmount, int m_energyGemAmount)
     {
@@ -13,5 +14,6 @@ public class PlayerWealthScript : MonoBehaviour
         _gearsCollected += m_gearAmount;
         Debug.Log("Play energy gem collection sound here");
         _energyGemsCollected += m_energyGemAmount;
+        _shopScript.UpdateResourceText(_gearsCollected, _energyGemsCollected);
     }
 }
